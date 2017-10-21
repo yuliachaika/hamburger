@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HAMBURGER</title>
+  <style>
+    .hamburger__menu-list {
+      width: 300px;
+      list-style: none;
+      padding: 0;
+      margin-left: 20px;
+    }
+    .hamburger__menu-item {
+      width: 100%;
+      box-sizing: border-box;
+      background-color: peachpuff;
+    }
+    .hamburger__menu-item:hover {
+      cursor: pointer;
+      opacity: .7;
+    }
+    .hamburger__icon-line {
+      width: 50px;
+      height: 5px;
+      background-color: #ecf0f1;
+      display: block;
+      margin: 8px auto;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger__icon {
+      width: 100px;
+      cursor: pointer;
+    }
+
+    #hamburger.active .hamburger__icon-line:nth-child(1){
+      transform: translateY(13px);
+    }
+
+    #hamburger.active .hamburger__icon-line:nth-child(3){
+      transform: translateY(-13px);
+    }
+  </style>
+</head>
+<body>
+  <div class="hamburger">
+    <div class="hamburger__icon" id="hamburger">
+      <span class="hamburger__icon-line"></span>
+      <span class="hamburger__icon-line"></span>
+      <span class="hamburger__icon-line"></span>
+    </div>
+    <div class="hamburger__menu">
+      <ul class="hamburger__menu-list">
+        <li class="hamburger__menu-item">LINK ONE</li>
+        <li class="hamburger__menu-item">LINK TWO</li>
+        <li class="hamburger__menu-item">LINK THREE</li>
+        <li class="hamburger__menu-item">LINK FOUR</li>
+        <li class="hamburger__menu-item">LINK FIVE</li>
+      </ul>
+    </div> 
+  </div>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script>
+  
+   $(document).ready(function() {
+    $('.hamburger__menu-list').hide();
+    $('#hamburger').on('click', function() {
+     $(this).toggleClass('active');
+     $('.hamburger__menu-list').slideToggle('slow');
+   });
+  }); 
+</script>
+</body>
+</html>
